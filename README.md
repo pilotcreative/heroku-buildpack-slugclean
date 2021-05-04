@@ -1,7 +1,7 @@
 # Post-build Clean Buildpack
 
 A simple buildpack to run after all other buildpacks have completed,
-which removes a set of files defined in `.slug-post-clean`, so that they
+which removes a set of files defined in `.slugremove`, so that they
 are not included in the finished slug.
 
 ## Rationale
@@ -24,14 +24,14 @@ part of the slug.
 ## Usage
 
 You can use [Heroku's multi-buildpack support](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app)
-to add  this buildpack to your existing buildpack(s). The post-build-clean buildpack **must** be last in the
+to add this buildpack to your existing buildpack(s). The post-build-clean buildpack **must** be last in the
 buildpack order, which the following command will ensure:
 
 ```sh-session
-heroku buildpacks:add qulture/post-build-clean
+heroku buildpacks:add https://github.com/pilotcreative/heroku-buildpack-slugremove.git
 ```
 
-The `.slug-post-clean` file supports single-file and single-directory
+The `.slugremove` file supports single-file and single-directory
 declarations only, e.g.:
 
 ```
@@ -42,11 +42,3 @@ why_does_this_app_even_contain_a.tiff
 ```
 
 **Remember to add a trailing line in the end of the file**
-
-## Using the latest source code
-
-The `qulture/post-build-clean` buildpack from the [Heroku Buildpack Registry](https://devcenter.heroku.com/articles/buildpack-registry) represents the latest stable version of the buildpack. If you'd like to use the source code from this Github repository, you can set your buildpack to the Github URL:
-
-```sh-session
-heroku buildpacks:add https://github.com/QultureRocks/qr-post-build-clean-buildpack.git
-```

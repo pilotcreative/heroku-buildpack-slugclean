@@ -9,8 +9,8 @@ if [[ ! -n "${BUILD_DIR}" ]]; then
   exit 1
 fi
 
-if [[ ! -f "${BUILD_DIR}/.slug-post-clean" ]]; then
-  echo "Could not find .slug-post-clean file - exiting"
+if [[ ! -f "${BUILD_DIR}/.slugremove" ]]; then
+  echo "Could not find .slugremove file - exiting"
   exit 1
 fi
 
